@@ -48,7 +48,7 @@ In order to have the App running, please make sure you have Android/iOS environm
 
 <details>
 <summary>Android environment Setup</summary>
-
+  
 1. Download and install Java [(preferably Java 8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 2. Download [Android Studio](https://developer.android.com/studio)
 3. Follow the set up prompts and select the following components when prompted at the SDK Manager step:
@@ -63,9 +63,10 @@ In order to have the App running, please make sure you have Android/iOS environm
 
 NOTE: To use platform tools like `adb` on the command line you will need to add `$ANDROID_HOME/platform-tools` to the `$PATH`. `$ANDROID_HOME` is the root of your android sdk installation which might also require manually setting in your shell rc files ie (`.bashrc`, `.zshrc`).
 </details>
+
 <details>
 <summary>Application Local Setup</summary>
-
+  
 1. Clone the repo
 2. `npm install`
 3. Make sure a device is available with `adb devices`
@@ -73,6 +74,7 @@ NOTE: To use platform tools like `adb` on the command line you will need to add 
     1. Execute `cp release-keystore.properties.dist release-keystore.properties` and replace the local variables
     2. Replace `local.properties` file content paths with your user
 5. `npm run android`
+</details>
 
 ## Running the App
 
