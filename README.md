@@ -11,7 +11,7 @@ This skeleton was built with productivity in mind. After at least 4 projects usi
 
 _We currently support only Reactjs_
 
-### Codebase
+## Codebase
 
 #### Technologies
 * React Native 0.61
@@ -33,43 +33,53 @@ src/
 ├── store        # State management files, usually 1 folder per context, containing reducers, epics, actions, types
 ├── utils        # Redux utilities, config utilities, numbers ....
 ```
-
-### First time setup
-
-```sh
-npm i
-```
-
-The project was started with Expo, and on top of it, I added some skeleton with production environment in mind. First step to run your web app is making sure you have a valid `public/index.html`
-The default value in this file is `theiconicapp`, but you should rename it to what suits your app better.
-
-* Change /public/index.html and replace `theiconicapp` by your correct app name.
-* Change /src/utils/config.ts and replace `theiconicapp` by your correct app name.
-* Change /src/module/Modal.tsx and replace `theiconicapp` by your correct app name.
-
-### Running the app locally
-
-#### Develop the web UI
-
-`npm run dev`
-
-Node is a great choice for building command line tools.
-In this tutorial, James Hibbard and Lukas White show you how to build a Node CLI which interacts with the GitHub API.
-
-Article URL: https://www.sitepoint.com/javascript-command-line-interface-cli-node-js/
-
 ## Requirements
 
+* [Expo](https://expo.io/)
+* [React Native](https://github.com/facebook/react-native)
 * [Node.js](http://nodejs.org/)
 * [Git](https://git-scm.com/)
 * [GitHub account](https://github.com/)
 
-## Installation Steps (if applicable)
+### First time setup
 
-1. Clone repo
-2. Run `npm install`
-3. Install the module globally with `npm install -g` from within the project directory
-4. Run `ginit`
+The project was started with Expo, and on top of it, I added some skeleton with production environment in mind.
+In order to have the App running, please make sure you have Android/iOS environment setup.
+
+<details>
+<summary>Android environment Setup</summary>
+
+1. Download and install Java [(preferably Java 8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+2. Download [Android Studio](https://developer.android.com/studio)
+3. Follow the set up prompts and select the following components when prompted at the SDK Manager step:
+
+* Build Tools: 28.0.2
+* SDK: 16 & 27
+* NDK
+
+3. Create virtual device for local execution. Run ` adb devices` to list available devices
+4. Import the project into Android Studio using the `Existing project in filesystem` option and select the `android` directory in the project root
+5. Let Android Studio parse the build scripts and pull in required dependencies (this might take a while for the first build)
+
+NOTE: To use platform tools like `adb` on the command line you will need to add `$ANDROID_HOME/platform-tools` to the `$PATH`. `$ANDROID_HOME` is the root of your android sdk installation which might also require manually setting in your shell rc files ie (`.bashrc`, `.zshrc`).
+</details>
+<details>
+<summary>Application Local Setup</summary>
+
+1. Clone the repo
+2. `npm install`
+3. Make sure a device is available with `adb devices`
+4. Go to `/android` and edit the following files
+    1. Execute `cp release-keystore.properties.dist release-keystore.properties` and replace the local variables
+    2. Replace `local.properties` file content paths with your user
+5. `npm run android`
+
+## Running the App
+
+After having properly configured the Android/iOS environment, you can:
+
+`npm start --reset-cache`
+`npm run android`
 
 ## License
 
