@@ -1,6 +1,7 @@
 import * as React from 'react';
 import 'react-native-gesture-handler';
 import { Provider } from 'react-redux';
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { mapping, light as lightTheme } from '@eva-design/eva';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
@@ -15,7 +16,9 @@ export default function App() {
     <Provider store={store}>
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider mapping={mapping} theme={lightTheme}>
-        <Navigation />
+        <SafeAreaProvider>
+          <Navigation />
+        </SafeAreaProvider>
       </ApplicationProvider>
     </Provider>
   );

@@ -9,8 +9,6 @@
 
 This skeleton was built with productivity in mind. After at least 4 projects using the same structure, it starts making sense to have a robust boilerplate that you can start shipping features in small amount of time. You don't want to see yourself spending one or two days to setup initial files, tests etc.
 
-_We currently support only Reactjs_
-
 ## Codebase
 
 #### Technologies
@@ -81,6 +79,7 @@ NOTE: To use platform tools like `adb` on the command line you will need to add 
 After having properly configured the Android/iOS environment, you can:
 
 `npm start --reset-cache`
+
 `npm run android`
 
 ## License

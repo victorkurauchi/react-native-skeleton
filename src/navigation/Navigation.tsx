@@ -13,29 +13,12 @@ import SettingsScreen from '@/screens/Settings';
 import SignInScreen from '@/screens/Signin';
 import SignUpScreen from '@/screens/Signup';
 import ResetPasswordScreen from '@/screens/ResetPassword';
-
-/** Stack Screen */
-function HomeStackScreen() {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="Details" component={DetailsScreen} />
-    </HomeStack.Navigator>
-  );
-}
-
-function SettingsStackScreen() {
-  return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Settings" component={SettingsScreen} />
-      <SettingsStack.Screen name="Details" component={DetailsScreen} />
-    </SettingsStack.Navigator>
-  );
-}
+import { HomeBottomNavigation } from './HomeBottomNavigation';
+import { HomeNavigator } from './HomeNavigation';
 
 const HomeStack = createStackNavigator();
 const SettingsStack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+const BottomTab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const Navigation = () => {
@@ -50,21 +33,23 @@ const Navigation = () => {
 
   console.log('Auth reducer', authState)
 
-  if (authState.token == null) {
-    return (
-      <NavigationContainer ref={navigationRef}>
-        <Stack.Navigator headerMode="none">
-          <Stack.Screen name="Signin" component={SignInScreen} />
-          <Stack.Screen name="Signup" component={SignUpScreen} />
-          <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    )
-  }
+  // if (authState.token == null) {
+  //   return (
+  //     <NavigationContainer ref={navigationRef}>
+  //       <Stack.Navigator headerMode="none">
+  //         <Stack.Screen name="Signin" component={SignInScreen} />
+  //         <Stack.Screen name="Signup" component={SignUpScreen} />
+  //         <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+  //       </Stack.Navigator>
+  //     </NavigationContainer>
+  //   )
+  // }
 
   return (
     <NavigationContainer ref={navigationRef}>
-      <Tab.Navigator
+      <HomeNavigator />
+      {/* <BottomTab.Navigator
+        tabBar={props => <HomeBottomNavigation {...props} />}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
@@ -86,12 +71,11 @@ const Navigation = () => {
           inactiveTintColor: 'gray',
         }}
       >
-        <Tab.Screen name="Home" component={HomeStackScreen} />
-        <Tab.Screen name="Settings" component={SettingsStackScreen} />
-      </Tab.Navigator>
+        <BottomTab.Screen name="Home" component={HomeStackScreen} />
+        <BottomTab.Screen name="Settings" component={SettingsStackScreen} />
+      </BottomTab.Navigator> */}
     </NavigationContainer>
   )
-  
 };
 
 export default Navigation;
